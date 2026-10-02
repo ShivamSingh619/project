@@ -10,7 +10,7 @@ Identify suspicious authentication activity, reconstruct event timelines, docume
 
 ## Tools, Technologies & Dataset
 
-- Cloud Splunk
+- Splunk
 - Splunk Search Processing Language (SPL)
 - MITRE ATT&CK
 - Simulated dataset containing 4,000 HTTP log file.
