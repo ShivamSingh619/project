@@ -33,10 +33,11 @@ index="http" uri="/login" id.orig_h="10.0.0.50"
 
 2. check this ip 10.0.0.50 this
 this is look like normal employee's
+
 ![10.0.0.50 look like normal](Images/4.png)
 
 
-3. 
+3. check this ip 10.0.0.
 
 
 
