@@ -20,38 +20,49 @@ index="http" ("*fail*" OR "*auth*") uri="/login"
 ```
 ![Splunk searching multiple failed login](Images/2.png)
 
-## Step 3: Every ip indiviusal serach who is successful login 
+## Step 3: Individually Analyze Each IP for Successful Login Attempts
 
-index="http" uri="/login" id.orig_h="10.0.0.50"
+After identifying IP addresses with multiple login attempts, I investigated each IP individually to determine whether the login attempts were successful or unsuccessful.
+
+### Splunk Query
+
+```spl
+# Search login events for a specific source IP 
+index="http" uri="/login" id.orig_h="10.0.0.40"
+
+# Sort events by username and timestamp
 | sort 0 username +ts
-| table ts id.orig_h username auth_result id.resp_h status_code
 
-1. i check thsi ip 10.0.0.40
-  this is might be successful login username sv_monitor 
+# Display relevant fields for login analysis
+| table ts id.orig_h username auth_result id.resp_h status_code
+```
+
+### 1. IP: 10.0.0.40
+  The activity from ```10.0.0.40``` shows login attempts associated with the username ```sv_monitor```. The attempts appear to be unsuccessful.
 
 ![10.0.0.40 All login fail](Images/3.png)
 
 
-2. check this ip 10.0.0.50 this
-this is look like normal employee's
+### 2. IP: 10.0.0.50
+The activity from ```10.0.0.50``` appears consistent with normal employee login activity.
 
 ![10.0.0.50 look like normal](Images/4.png)
 
 
-3. check this ip 10.0.0.81
-this is look like successfully login username is sv_backup
+### 3. IP: 10.0.0.81
+The activity from ```10.0.0.81``` shows a successful login associated with the username ```sv_backup```.
 
 ![10.0.0.81 login confirm](Images/5.png)
 
 
-4. check this ip 10.0.0.82
-   this is look like try not successful to login try diff employee id
+### 4. IP: 10.0.0.82
+   The activity from ```10.0.0.82``` shows multiple unsuccessful login attempts using different employee usernames.
 
 ![10.0.0.82 All login fail](Images/6.png)
 
 
-5. check this ip 10.0.0.99
-   this is might be successful login username admin  
+### 4. IP: 10.0.0.99
+   The activity from 10.0.0.99 shows a successful login associated with the username admin.
 
 ![10.0.0.99 login successful](Images/7.png)
    
