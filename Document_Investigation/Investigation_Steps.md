@@ -37,7 +37,10 @@ this is look like normal employee's
 ![10.0.0.50 look like normal](Images/4.png)
 
 
-3. check this ip 10.0.0.
+3. check this ip 10.0.0.81
+this is look like successfully loing
+
+![10.0.0.81 login confirm](Images/5.png)
 
 
 
