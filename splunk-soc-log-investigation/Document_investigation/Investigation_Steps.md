@@ -2,7 +2,7 @@
 
 1. Open **Splunk** and upload the HTTP log file.
 2. Set the time range to **All time**.
-3. Verify that the total number of events is **4,000**.
+3. Verify that the total number of events is **3,990**.
 
 ![Splunk HTTP Log Upload](Images/1.png)
 
@@ -26,7 +26,7 @@ After identifying IP addresses with multiple login attempts, I investigated each
 
 ### Splunk Query
 
-```spl
+```spl,
 # Search login events for a specific source IP 
 index="http" uri="/login" id.orig_h="10.0.0.40"
 
