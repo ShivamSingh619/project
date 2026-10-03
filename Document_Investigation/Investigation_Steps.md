@@ -5,3 +5,16 @@
 3. Verify that the total number of events is **4,000**.
 
 ![Splunk HTTP Log Upload](Images/1.png)
+
+## Step 2: Search for Multiple Failed Login Attempts
+
+```spl
+# Search the HTTP index for failed/authentication-related login requests
+index="http" ("*fail*" OR "*auth*") uri="/login"
+
+# Count matching login requests for each source IP
+| stats count BY id.orig_h
+
+# Display only IPs with 20 or more login requests
+| where count >= 20
+
