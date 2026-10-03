@@ -62,8 +62,15 @@ The activity from ```10.0.0.81``` shows a successful login associated with the u
 
 
 ### 4. IP: 10.0.0.99
-   The activity from 10.0.0.99 shows a successful login associated with the username admin.
+   The activity from ```10.0.0.99``` shows a successful login associated with the username admin.
 
 ![10.0.0.99 login successful](Images/7.png)
    
+### Summary
+
+I analyzed the five IP addresses individually to identify successful and failed login attempts. `10.0.0.40` (`sv_monitor`) and `10.0.0.82` showed failed login activity, while `10.0.0.81` (`sv_backup`) and `10.0.0.99` (`admin`) showed successful logins. `10.0.0.50` appeared consistent with normal employee activity.
+
+### Next Step
+
+Next, I will investigate the successful login activity from `10.0.0.81` and `10.0.0.99` to determine what happened after authentication and identify any suspicious activity.
 
