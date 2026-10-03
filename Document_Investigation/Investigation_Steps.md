@@ -17,4 +17,9 @@ index="http" ("*fail*" OR "*auth*") uri="/login"
 
 # Display only IPs with 20 or more login requests
 | where count >= 20
+```
+![Splunk searching multiple failed login](Images/2.png)
+
+
+
 
