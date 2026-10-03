@@ -72,9 +72,14 @@ I analyzed the five IP addresses individually to identify successful and failed 
 
 I also investigated the identified IPs for any further related activity but did not find additional relevant events. Based on the available log data, I could not determine any further activity associated with these IPs.
 
-### Next Step
 
-Since no further related activity was identified, I escalated the findings to the **SOC L2 team** for further analysis and investigation.
+
+## MITRE ATT&CK Assessment
+
+- **Tactic:** Credential Access
+- **Technique:** T1110.001 — Password Guessing
+- **Assessment:** Repeated failures against the same account within a short period are consistent with suspected password guessing.
+- **Limitation:** The logs do not contain attempted passwords or establish whether the successful login was authorised.
 
 
 ## Simulated SOC L2 Escalation
