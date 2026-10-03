@@ -20,6 +20,10 @@ index="http" ("*fail*" OR "*auth*") uri="/login"
 ```
 ![Splunk searching multiple failed login](Images/2.png)
 
+## Step 3: Every ip indiviusal serach who is successful login 
 
+first i check thsi ip 10.0.0.40 this is all are failure login 
+
+![10.0.0.40 Ip check](Images/3.png)
 
 
