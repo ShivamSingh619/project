@@ -22,8 +22,25 @@ index="http" ("*fail*" OR "*auth*") uri="/login"
 
 ## Step 3: Every ip indiviusal serach who is successful login 
 
-first i check thsi ip 10.0.0.40 this is all are failure login 
+index="http" uri="/login" id.orig_h="10.0.0.50"
+| sort 0 username +ts
+| table ts id.orig_h username auth_result id.resp_h status_code
 
-![10.0.0.40 Ip check](Images/3.png)
+1. i check thsi ip 10.0.0.40 this is all are failure login 
+
+![10.0.0.40 All fail ip](Images/3.png)
+
+
+2. check this ip 10.0.0.50 this
+this is look like normal employee's
+![10.0.0.50 look like normal](Images/4.png)
+
+
+3. 
+
+
+
+
+
 
 
