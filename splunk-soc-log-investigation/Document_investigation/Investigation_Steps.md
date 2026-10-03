@@ -76,3 +76,22 @@ I also investigated the identified IPs for any further related activity but did 
 
 Since no further related activity was identified, I escalated the findings to the **SOC L2 team** for further analysis and investigation.
 
+
+## Simulated SOC L2 Escalation
+
+The identified suspicious IP addresses were reviewed using Splunk to summarize the authentication activity.
+
+The investigation recorded:
+
+- Source and destination IP addresses
+- Affected usernames
+- First and last event timestamps
+- Number of failed authentication attempts
+- Number of successful authentication attempts
+- Login URI
+
+The summarized Splunk results were prepared as supporting evidence for escalation to the SOC L2 team for further investigation.
+
+![L2 Escalation Evidence](Images/8.png)
+
+
