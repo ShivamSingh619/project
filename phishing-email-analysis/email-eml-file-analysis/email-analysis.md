@@ -14,8 +14,6 @@ The investigation covers sender information, recorded authentication results, me
 | VirusTotal | Review existing URL, domain, and IP reputation reports |
 | emlbuddy.app | Application designed to analyze .eml files directly in your browser. |
 
-Website results are recorded separately from observations in the original email. Current reputation results may differ from conditions when this email was sent in 2022.
-
 ## 1. Preserve the Original Email
 
 Kept the original `email-analysis.eml` unchanged and used a copy for investigation.
