@@ -27,7 +27,7 @@ To calculate its SHA-256 hash on Windows, run:
 Get-FileHash .\email-analysis.eml -Algorithm SHA256
 ```
 
-**SHA-256:** `[Add the calculated hash]`
+**SHA-256:** `B7A1494EAAC023B738310869F3B39607FA63BCF4623AFA6B6B7F5194702B11BF`
 
 ![Email SHA-256 hash](Images/eml12-file-hash.png)
 
