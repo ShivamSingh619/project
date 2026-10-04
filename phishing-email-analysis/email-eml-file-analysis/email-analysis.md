@@ -131,33 +131,29 @@ The image URL and verification URL serve different purposes. The presence of a b
 
 ![Extracted HTML link destinations](Images/eml12-extracted-links.png)
 
-## 7. Check URL Reputation — VirusTotal
+## 7. Check File and URL Reputation — VirusTotal
 
-### Procedure
+I checked the email’s SHA-256 hash and extracted verification URL using VirusTotal.
 
-1. Open `https://www.virustotal.com`.
-2. Search for the extracted verification URL or domain.
-3. Review any existing report.
-4. Record the analysis timestamp and vendor detection results.
-5. Distinguish “no existing report” from a clean verdict.
+### URL Result
 
-Start with existing reports. Submitting a new URL can cause the service to visit it, and submission visibility should be considered.
+VirusTotal flagged `https://zzdzw.com/` as malicious.
 
-### Results
+![VirusTotal URL results](Images/eml12-virustotal-url.png)
 
-| Field | Investigation result |
-|---|---|
-| Indicator checked | `zzdzw[.]com` / extracted verification URL |
-| Check date | `[Add date]` |
-| Report analysis date | `[Add date shown by the service]` |
-| Detection result | `[Add actual detection count or verdict]` |
-| Report reference | `[Add report link, if available]` |
+### File Hash Result
 
-### Interpretation
+The file report displayed a Sigma rule match:
 
-`[Explain what the actual report supports. Do not label the URL malicious solely because the email is suspicious.]`
+**Office Application Initiated Network Connection To Non-Local IP**
 
-![VirusTotal URL reputation results](Images/eml12-virustotal-url.png)
+This rule identifies Office applications connecting to public IP addresses. The match requires context and does not independently prove that this email executed malware or exploited CVE-2021-42292.
+
+![VirusTotal file report and Sigma match](Images/eml12-virustotal-file.png)
+
+### Assessment
+
+The URL verdict supports the phishing assessment. The Sigma match is supporting evidence requiring further investigation.
 
 ## 8. Review Website Evidence — URLScan.io
 
