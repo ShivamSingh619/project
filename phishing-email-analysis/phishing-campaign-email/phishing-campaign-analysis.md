@@ -71,7 +71,7 @@ I captured the rendered email and exported the mailbox to retain the message con
 
 The screenshot below shows the sender details, urgency, account-review button, sensitive-information request, and PDF-styled link.
 
-![CanIPhish simulation email received in the FreeCustom.Email temporary mailbox](screenshots/my_email_anaylsis.png)
+![CanIPhish simulation email received in the FreeCustom.Email temporary mailbox](Images/email_anaylsis.png)
 
 ## Header Review Scope
 
