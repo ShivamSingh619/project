@@ -111,9 +111,8 @@ The email preview supports content inspection; it does not independently establi
 
 ## 6. Extract and Inspect URLs
 
-Reviewed the HTML link destinations and compared them with the message's claimed identity.
+I reviewed the email’s HTML and extracted the link destinations to compare them with its claimed Binance identity.
 
-When examining raw quoted-printable HTML, decode it first: `=3D` represents an equals sign, and soft line breaks can split a URL.
 
 | URL | Role |
 |---|---|
@@ -122,9 +121,10 @@ When examining raw quoted-printable HTML, decode it first: `=3D` represents an e
 
 ### Assessment
 
-The verification action points to `zzdzw.com`, rather than a Binance-branded destination. Combined with the recorded DMARC failure and account-disable pressure, this is a strong phishing indicator.
+The verification link points to a domain unrelated to the claimed Binance identity. Together with the recorded DMARC failure and account-disable pressure, this supports the phishing assessment.
 
-The image URL and verification URL serve different purposes. The presence of a branded image does not authenticate the email.
+The banner image is a separate resource; its presence does not authenticate the message. I checked the verification URL’s reputation in Step 7.
+
 
 ![Extracted HTML link destinations](Images/eml12-extracted-links.png)
 
