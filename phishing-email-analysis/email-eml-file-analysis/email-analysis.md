@@ -90,13 +90,9 @@ This identifies the sending server observed by the receiving system. It does not
 
 ## 5. Analyse Message Content
 
-Reviewed the text/plain body and decoded HTML content without following the links.
+I uploaded `sample-12.eml` to EMLBuddy (https://emlbuddy.app/) and used its email preview to examine how the message appeared to the recipient.
 
-If content is encoded, use CyberChef:
-
-- For quoted-printable content, use the **From Quoted Printable** operation.
-- For Base64 content, use the **From Base64** operation.
-- Decode only the relevant MIME body section, rather than the entire email.
+I reviewed the branding, wording, requested action, and social engineering indicators.
 
 | Indicator | Observation |
 |---|---|
@@ -110,9 +106,11 @@ If content is encoded, use CyberChef:
 
 ### Assessment
 
-The message combines a familiar brand, financial concern, and a deadline to persuade the recipient to follow a verification link. Language errors provide supporting context but are not decisive evidence on their own.
+The message uses Binance branding, financial concerns, and a deadline to pressure the recipient into following a verification link. Language errors provide supporting context but are not sufficient on their own to classify the email as phishing.
 
-![Email content and social engineering indicators](Images/eml12-message-content.png)
+The email preview supports content inspection; it does not independently establish whether linked websites are malicious.
+
+![Email appearance and social engineering indicators reviewed in EMLBuddy](Images/eml12-message-content.png)
 
 ## 6. Extract and Inspect URLs
 
