@@ -63,7 +63,7 @@ Located the `Authentication-Results` and `Received-SPF` headers.
 
 The recorded results do not authenticate the message as an authorised Binance email. Combined with the sender mismatch and message content, they strengthen the phishing assessment.
 
-These are results recorded in the supplied email, not authentication checks independently rerun during this investigation. Authentication failure alone is not sufficient for a phishing verdict.
+These authentication results were recorded by the receiving mail server and reviewed during this investigation. Authentication failure alone is not sufficient to classify an email as phishing.
 
 ![Recorded authentication results](Images/eml12-authentication.png)
 
