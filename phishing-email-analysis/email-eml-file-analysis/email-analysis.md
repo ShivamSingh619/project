@@ -13,7 +13,7 @@ The investigation covers sender information, recorded authentication results, me
 | VS Code | Inspect the original email as text |
 | CyberChef | Decode quoted-printable or Base64 content where needed |
 | VirusTotal | Review existing URL, domain, and IP reputation reports |
-| URLScan.io | Search for existing scans and examine recorded website behaviour |
+| emlbuddy.app | Application designed to analyze .eml files directly in your browser. |
 
 Website results are recorded separately from observations in the original email. Current reputation results may differ from conditions when this email was sent in 2022.
 
@@ -38,9 +38,9 @@ Opened the email in VS Code and located the From, Reply-To, Return-Path, Subject
 | Field | Observed value |
 |---|---|
 | Display name | Binance |
-| From | `do-not-reply@ses.binance[.]com` |
-| Reply-To | `do-not-reply@ses.binance[.]com` |
-| Return-Path | `wpcloud@ilonasavola[.]com` |
+| From | `do-not-reply@ses.binance.com` |
+| Reply-To | `do-not-reply@ses.binance.com` |
+| Return-Path | `wpcloud@ilonasavola.com` |
 | Date | 22 August 2022, 21:39:41 UTC |
 | Subject | Requests immediate verification and includes Binance-like branding |
 
@@ -76,13 +76,13 @@ I used EMLBuddy (https://emlbuddy.app/) to review the Received headers in `email
 
 | Field | Recorded value |
 |---|---|
-| Connecting hostname | `smtp2.wp-cloud[.]fi` |
+| Connecting hostname | `smtp2.wp-cloud.fi` |
 | Connecting IP | `84.34.166.151` |
-| Envelope sender domain | `ilonasavola[.]com` |
+| Envelope sender domain | `ilonasavola.com` |
 
 ### Assessment
 
-The Received headers record a connection from `smtp2.wp-cloud[.]fi` (`84.34.166.151`) into Microsoft's receiving infrastructure. The Authentication-Results header also records this IP as the connecting sender.
+The Received headers record a connection from `smtp2.wp-cloud.fi` (`84.34.166.151`) into Microsoft's receiving infrastructure. The Authentication-Results header also records this IP as the connecting sender.
 
 This identifies the sending server observed by the receiving system. It does not establish the attacker's identity or independently prove that the server was malicious.
 
@@ -90,7 +90,7 @@ This identifies the sending server observed by the receiving system. It does not
 
 ## 5. Analyse Message Content
 
-I uploaded `sample-12.eml` to EMLBuddy (https://emlbuddy.app/) and used its email preview to examine how the message appeared to the recipient.
+I uploaded `email-analysis.eml` to EMLBuddy (https://emlbuddy.app/) and used its email preview to examine how the message appeared to the recipient.
 
 I reviewed the branding, wording, requested action, and social engineering indicators.
 
@@ -120,12 +120,12 @@ When examining raw quoted-printable HTML, decode it first: `=3D` represents an e
 
 | URL | Role |
 |---|---|
-| `hxxps://zzdzw[.]com/` | Destination of the verification action |
-| `hxxps://public[.]bnbstatic[.]com/image/email_template/emailBanner.png` | Remote image used in the message |
+| `https://zzdzw.com/` | Destination of the verification action |
+| `https://public.bnbstatic.com/image/email_template/emailBanner.png` | Remote image used in the message |
 
 ### Assessment
 
-The verification action points to `zzdzw[.]com`, rather than a Binance-branded destination. Combined with the recorded DMARC failure and account-disable pressure, this is a strong phishing indicator.
+The verification action points to `zzdzw.com`, rather than a Binance-branded destination. Combined with the recorded DMARC failure and account-disable pressure, this is a strong phishing indicator.
 
 The image URL and verification URL serve different purposes. The presence of a branded image does not authenticate the email.
 
