@@ -175,6 +175,12 @@ The claimed Binance address should not be treated as malicious infrastructure me
 
 **Evidence provided:** Original email hash, header observations, extracted indicators, screenshots, and completed reputation-check results.
 
+## 10. MITRE ATT&CK Mapping
+
+| Technique | Mapping | Supporting evidence |
+|---|---|---|
+| T1566.002 — Spearphishing Link | Consistent with the observed email | The message impersonates Binance and directs the recipient to an unrelated verification URL |
+
 
 ## Final Assessment
 
