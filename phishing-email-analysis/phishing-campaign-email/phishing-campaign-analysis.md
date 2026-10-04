@@ -95,8 +95,6 @@ If a similar message were reported in a production environment, recommended foll
 - Determine whether recipients clicked links, downloaded files, or submitted information.
 - Escalate confirmed exposure according to the organisation's response procedures.
 
-These are recommended response steps, not actions claimed as completed in this simulation.
-
 ## Skills Practised
 
 - Controlled phishing simulation setup
