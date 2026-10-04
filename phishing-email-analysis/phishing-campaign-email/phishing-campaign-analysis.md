@@ -1,7 +1,5 @@
 # Phishing Campaign Analysis
 
-**Controlled simulation · CanIPhish · FreeCustom.Email · Manual email review**
-
 ## Overview
 
 I used CanIPhish to run a phishing campaign simulation and FreeCustom.Email as a temporary mailbox to receive and review the messages. The scenario used an account-security notification to encourage the recipient to review an unfamiliar sign-in and complete a verification process.
