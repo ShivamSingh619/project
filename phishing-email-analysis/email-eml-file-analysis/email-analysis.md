@@ -72,7 +72,7 @@ These are results recorded in the supplied email, not authentication checks inde
 
 ## 4. Review the Delivery Route
 
-I used EMLBuddy (https://emlbuddy.app/) to review the Received headers in `sample-12.eml` and trace the recorded delivery route.
+I used EMLBuddy (https://emlbuddy.app/) to review the Received headers in `email-analysis.eml` and trace the recorded delivery route.
 
 | Field | Recorded value |
 |---|---|
