@@ -4,13 +4,9 @@
 
 ## Overview
 
-I used CanIPhish to run a phishing simulation and FreeCustom.Email as a temporary mailbox to receive and review the messages. The scenario used an account-security notification to encourage the recipient to review an unfamiliar sign-in and complete a verification process.
+I used CanIPhish to run a phishing campaign simulation and FreeCustom.Email as a temporary mailbox to receive and review the messages. The scenario used an account-security notification to encourage the recipient to review an unfamiliar sign-in and complete a verification process.
 
 My investigation focused on how the email appeared to the recipient, the social engineering techniques it used, and the sender details and links available in the message. I preserved a screenshot and mailbox export as supporting evidence.
-
-## Objective
-
-Identify phishing indicators in a controlled email campaign and document an evidence-based assessment of the account-verification lure.
 
 ## Tools and Evidence
 
