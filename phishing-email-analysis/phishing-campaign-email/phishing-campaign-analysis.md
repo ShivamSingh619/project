@@ -52,19 +52,7 @@ I reviewed the email in the temporary mailbox, checking:
 | Requested information | Mentions credentials, a security code, and billing information | Consistent with a lure seeking sensitive information |
 | Document presentation | Shows `Security_Review_Notice.pdf` in an attachment-style box | Makes an external document link appear like an attached notice |
 
-### 5. Review the Link Evidence
-
-The account-review destination in the supplied message content is:
-
-`hxxps://securedesk[.]example[.]test/account-review`
-
-The `.test` hostname is consistent with this training scenario. The PDF-styled item links to a Google Drive file; it is not an embedded PDF attachment in the mailbox export.
-
-The supplied HTML also contains a hidden tracking image with a CanIPhish marker. Its presence is consistent with simulation tracking, but does not independently confirm an email open, link click, or credential submission.
-
-No live landing-page inspection, document-content analysis, or external reputation verdict is claimed in this report. URLs are defanged, and full tracking identifiers are omitted from the public documentation.
-
-### 7. Preserve the Evidence
+### 5. Preserve the Evidence
 
 I captured the rendered email and exported the mailbox to retain the message content for documentation and later analysis.
 
@@ -77,6 +65,29 @@ The screenshot below shows the sender details, urgency, account-review button, s
 The temporary mailbox did not display full transport and authentication headers. The supplied export contains basic message fields, including From, To, Subject, Date, and Message-ID.
 
 SPF, DKIM, DMARC, the originating IP, and the delivery route could not be assessed from the available evidence. This case study therefore focuses on the message content, available sender details, social engineering, and link presentation. Full-header analysis can be documented separately when suitable evidence is available.
+
+## 6. Review the URL and File Evidence
+
+### URL Analysis — URLScan.io
+
+I checked the following URL using URLScan.io:
+
+`hxxps://104tyesy[.]vercel[.]app/`
+
+The scan flagged the URL as malicious. I saved the scan results as supporting evidence.
+
+![URLScan.io analysis results](Images/urlscan.png)
+
+### File Analysis — VirusTotal
+
+I checked the following file using VirusTotal:
+
+- **Filename:** `ad9f2465000871ee79d4fa7411c29bc855dc1b06f76377cfc69acdb4fa3e1486.sh`
+- **MD5 hash:** `6b463272294e599b19147d6a589cf462`
+
+VirusTotal reported malicious detections for the file. I saved the detection results as supporting evidence.
+
+![VirusTotal file analysis results](Images/virustotal.png)
 
 ## Assessment
 
