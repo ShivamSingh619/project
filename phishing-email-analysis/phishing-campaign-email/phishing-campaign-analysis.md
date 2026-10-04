@@ -10,13 +10,14 @@ My investigation focused on how the email appeared to the recipient, the social 
 
 ## Tools and Evidence
 
-| Tool or evidence | Purpose |
+| Tool or Evidence | Purpose |
 |---|---|
 | CanIPhish | Create and send the phishing simulation |
-| FreeCustom.Email | Receive and inspect the simulation messages in a temporary mailbox |
-| Manual review | Examine the sender, subject, branding, requested actions, and visible links |
-| Email screenshot | Preserve the recipient's view of the message |
-| `.mbox` export | Preserve the two received message samples for comparison and further analysis |
+| FreeCustom.Email | Receive and review the simulation emails |
+| Manual review | Examine sender details, message content, and phishing indicators |
+| VirusTotal — optional follow-up | Check URL or file reputation |
+| URLScan.io — optional follow-up | Inspect a submitted website’s behaviour |
+| Screenshot and mailbox export | Preserve evidence for the investigation |
 
 ## Investigation Workflow
 
@@ -81,9 +82,9 @@ SPF, DKIM, DMARC, the originating IP, and the delivery route could not be assess
 
 ## Assessment
 
-The simulation demonstrates an account-verification phishing lure combining a trusted support identity, inconsistent branding, urgency, account-restriction pressure, and a request for sensitive information.
+The email uses an unfamiliar-sign-in warning, a 24-hour deadline, and possible account restrictions to pressure the recipient into taking action. It also mentions credentials, a security code, and billing information.
 
-The document-style link and account-review button provide clear examples of how a message can encourage interaction. No actual credential theft, malicious document, or account compromise was established in this exercise.
+These observations demonstrate an account-verification phishing message in this controlled simulation.
 
 ## Recommended SOC Follow-up
 
