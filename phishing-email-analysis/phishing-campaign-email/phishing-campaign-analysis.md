@@ -43,7 +43,7 @@ I reviewed the email in the temporary mailbox, checking:
 | Area reviewed | Observation | Investigation significance |
 |---|---|---|
 | Sender identity | Display name claimed to be Microsoft Support Team | Uses a familiar support identity to establish trust |
-| Sender address | `support@office-365-notifications[.]com` | The address should be validated independently rather than trusted from its wording |
+| Sender address | `support@office-365-notifications.com` | The address should be validated independently rather than trusted from its wording |
 | Body branding | SecureDesk Account Security | Branding differs from the claimed Microsoft support identity |
 | Subject | URGENT: Your Account Requires Immediate Security Verification | Encourages immediate attention |
 | Security pretext | Reports an unfamiliar sign-in | Uses concern about account access to motivate interaction |
@@ -72,7 +72,7 @@ SPF, DKIM, DMARC, the originating IP, and the delivery route could not be assess
 
 I checked the following URL using URLScan.io:
 
-`hxxps://104tyesy[.]vercel[.]app/`
+`hxxps://104tyesy.vercel.app/`
 
 The scan flagged the URL as malicious. I saved the scan results as supporting evidence.
 
