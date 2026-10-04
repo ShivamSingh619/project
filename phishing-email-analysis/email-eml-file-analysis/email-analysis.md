@@ -47,7 +47,7 @@ Opened the email in VS Code and located the From, Reply-To, Return-Path, Subject
 
 The visible From address claims Binance, while the Return-Path uses an unrelated domain. This mismatch requires investigation but does not independently prove phishing.
 
-The subject also contains visually similar characters in its branding. Preserve the exact subject when documenting this observation.
+The subject also contains visually similar characters in its branding. The subject contains visually similar non-Latin characters in the Binance branding.
 
 ![Sender and basic headers](Images/eml12-basic-headers.png)
 
@@ -169,10 +169,17 @@ These indicators are extracted evidence, not independently confirmed malicious i
 
 The claimed Binance address should not be treated as malicious infrastructure merely because it appears in a suspicious email.
 
-## 9. SOC L2 Escalation
+## 9. Simulated SOC L2 Escalation
 
 **Title:** Binance impersonation email requesting account verification
 
 **Reason for escalation:** Combined impersonation, recorded authentication failure, unrelated verification destination, and account-disable pressure.
 
 **Evidence provided:** Original email hash, header observations, extracted indicators, screenshots, and completed reputation-check results.
+
+
+## Final Assessment
+
+I assessed the email as phishing based on the combined evidence: Binance impersonation, recorded DMARC failure, an unrelated verification destination, account-disable pressure, and the malicious URL verdict reported by VirusTotal.
+
+No evidence of recipient interaction or account compromise was available. The Sigma rule match requires further investigation and does not independently establish malware execution.
