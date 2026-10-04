@@ -53,8 +53,6 @@ I reviewed the email in the temporary mailbox, checking:
 | Requested information | Mentions credentials, a security code, and billing information | Consistent with a lure seeking sensitive information |
 | Document presentation | Shows `Security_Review_Notice.pdf` in an attachment-style box | Makes an external document link appear like an attached notice |
 
-These indicators were assessed together. An individual wording choice or sender inconsistency alone does not establish malicious activity.
-
 ### 5. Review the Link Evidence
 
 The account-review destination in the supplied message content is:
