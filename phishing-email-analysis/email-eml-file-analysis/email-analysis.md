@@ -2,7 +2,7 @@
 
 ## Overview
 
-This SOC L1 case study examines `sample-12.eml`, an email claiming to represent Binance and requesting immediate account verification.
+This SOC L1 case study examines `email-analysis.eml`, an email claiming to represent Binance and requesting immediate account verification.
 
 The investigation covers sender information, recorded authentication results, message content, embedded URLs, and supporting reputation checks.
 
@@ -19,12 +19,12 @@ Website results are recorded separately from observations in the original email.
 
 ## 1. Preserve the Original Email
 
-Kept the original `sample-12.eml` unchanged and used a copy for investigation.
+Kept the original `email-analysis.eml` unchanged and used a copy for investigation.
 
 To calculate its SHA-256 hash on Windows, run:
 
 ```powershell
-Get-FileHash .\sample-12.eml -Algorithm SHA256
+Get-FileHash .\email-analysis.eml -Algorithm SHA256
 ```
 
 **SHA-256:** `[Add the calculated hash]`
