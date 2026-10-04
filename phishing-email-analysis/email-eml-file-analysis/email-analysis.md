@@ -72,9 +72,7 @@ These are results recorded in the supplied email, not authentication checks inde
 
 ## 4. Review the Delivery Route
 
-Reviewed the Received headers, following the route from the earlier entries toward the receiving system.
-
-The external connection into the Microsoft receiving infrastructure is recorded as:
+I used EMLBuddy (https://emlbuddy.app/) to review the Received headers in `sample-12.eml` and trace the recorded delivery route.
 
 | Field | Recorded value |
 |---|---|
@@ -84,11 +82,11 @@ The external connection into the Microsoft receiving infrastructure is recorded 
 
 ### Assessment
 
-The receiving header and authentication results both identify `84.34.166.151` as the connecting IP.
+The Received headers record a connection from `smtp2.wp-cloud[.]fi` (`84.34.166.151`) into Microsoft's receiving infrastructure. The Authentication-Results header also records this IP as the connecting sender.
 
-This identifies the server recorded as delivering the message to the receiving infrastructure. It does not identify the attacker or prove that the server itself was malicious.
+This identifies the sending server observed by the receiving system. It does not establish the attacker's identity or independently prove that the server was malicious.
 
-![Relevant Received headers](Images/eml12-delivery-route.png)
+![Delivery route reviewed using EMLBuddy](Images/eml12-delivery-route.png)
 
 ## 5. Analyse Message Content
 
