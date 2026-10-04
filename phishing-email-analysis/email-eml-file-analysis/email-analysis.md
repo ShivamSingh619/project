@@ -155,125 +155,25 @@ This rule identifies Office applications connecting to public IP addresses. The 
 
 The URL verdict supports the phishing assessment. The Sigma match is supporting evidence requiring further investigation.
 
-## 8. Review Website Evidence — URLScan.io
 
-### Procedure
-
-1. Open `https://urlscan.io`.
-2. Search existing scans using:
-
-```text
-domain:zzdzw.com
-```
-
-3. Check whether the scan matches the email's destination and relevant path.
-4. Review the scan date, final URL, redirects, page screenshot, and verdict.
-5. If no scan exists, record that result.
-
-A historical scan shows what was observed at its scan time. It does not automatically establish what the email's destination displayed in 2022.
-
-### Results
-
-| Field | Investigation result |
-|---|---|
-| Scan date | `[Add date]` |
-| Final destination | `[Add if available]` |
-| Redirects | `[Add if observed]` |
-| Page content | `[Describe what the scan actually shows]` |
-| Scan verdict | `[Add recorded verdict]` |
-| Report reference | `[Add report link]` |
-
-### Interpretation
-
-`[State whether the scan supports impersonation or credential collection. If the page is unavailable, document that limitation.]`
-
-![URLScan.io results](Images/eml12-urlscan.png)
-
-## 9. Optional Connecting-IP Reputation Check
-
-Search `84.34.166.151` in VirusTotal and review any existing IP report.
-
-| Field | Investigation result |
-|---|---|
-| IP checked | `84.34.166.151` |
-| Check date | `[Add date]` |
-| Reported result | `[Add actual result]` |
-
-An IP reputation result is supporting context. Shared infrastructure and changes in ownership mean it should not independently determine the email verdict.
-
-![Connecting-IP reputation results](Images/eml12-ip-reputation.png)
-
-## 10. Check for Attachments
-
-Reviewed the MIME structure of the supplied email.
-
-**Finding:** No embedded attachments were identified. The message contains plain-text and HTML bodies and uses an external verification link.
-
-Attachment malware analysis is therefore outside the scope of this sample.
-
-## 11. Record Investigation Indicators
+## 8. Record Investigation Indicators
 
 These indicators are extracted evidence, not independently confirmed malicious infrastructure.
 
 | Type | Indicator | Context |
 |---|---|---|
-| Claimed From | `do-not-reply@ses.binance[.]com` | Identity presented to the recipient |
-| Return-Path | `wpcloud@ilonasavola[.]com` | Envelope sender |
+| Claimed From | `do-not-reply@ses.binance.com` | Identity presented to the recipient |
+| Return-Path | `wpcloud@ilonasavola.com` | Envelope sender |
 | Connecting IP | `84.34.166.151` | Recorded external delivery connection |
-| Connecting hostname | `smtp2.wp-cloud[.]fi` | Recorded sending server |
-| Verification URL | `hxxps://zzdzw[.]com/` | Destination of the requested action |
+| Connecting hostname | `smtp2.wp-cloud.fi` | Recorded sending server |
+| Verification URL | `https://zzdzw.com/` | Destination of the requested action |
 
 The claimed Binance address should not be treated as malicious infrastructure merely because it appears in a suspicious email.
 
-## 12. Final Assessment
-
-**Email verdict:** Phishing, based on the combined message and header evidence.
-
-### Supporting Evidence
-
-- Claims to represent Binance.
-- Uses an unrelated envelope sender.
-- Recorded authentication results show SPF none, DKIM none, and DMARC fail.
-- Directs verification to an unrelated domain.
-- Uses withdrawal restrictions and a 72-hour deadline to encourage action.
-
-**Credential-harvesting assessment:** Suspected purpose. A credential-collection form has not been established unless supported by website-analysis evidence.
-
-**Impact:** No evidence of recipient clicks, submitted credentials, or account compromise was available.
-
-### External-Tool Findings
-
-`[Summarise completed VirusTotal and URLScan.io checks here. Remove this section if those checks were not performed.]`
-
-## 13. Simulated SOC L1 Escalation
+## 9. SOC L2 Escalation
 
 **Title:** Binance impersonation email requesting account verification
 
 **Reason for escalation:** Combined impersonation, recorded authentication failure, unrelated verification destination, and account-disable pressure.
 
 **Evidence provided:** Original email hash, header observations, extracted indicators, screenshots, and completed reputation-check results.
-
-### Recommended L2 Follow-up
-
-- Search mail logs for related messages and affected recipients.
-- Review proxy or DNS logs for visits to the extracted destination.
-- Determine whether any recipient submitted credentials.
-- Assess message removal and URL blocking under the response playbook.
-- If account exposure is confirmed, coordinate session revocation and credential reset.
-
-**Actions completed in this lab:** Email review and investigation documentation.
-
-
-## Screenshot Checklist
-
-- [ ] `Images/eml12-file-hash.png`
-- [ ] `Images/eml12-basic-headers.png`
-- [ ] `Images/eml12-authentication.png`
-- [ ] `Images/eml12-delivery-route.png`
-- [ ] `Images/eml12-message-content.png`
-- [ ] `Images/eml12-extracted-links.png`
-- [ ] `Images/eml12-virustotal-url.png` — if performed
-- [ ] `Images/eml12-urlscan.png` — if performed
-- [ ] `Images/eml12-ip-reputation.png` — optional
-
-Keep the `Images` folder beside this Markdown file. Redact personal recipient information from public screenshots. Replace placeholders and remove unused image references before publishing.
