@@ -65,17 +65,6 @@ The supplied HTML also contains a hidden tracking image with a CanIPhish marker.
 
 No live landing-page inspection, document-content analysis, or external reputation verdict is claimed in this report. URLs are defanged, and full tracking identifiers are omitted from the public documentation.
 
-### 6. Compare the Received Samples
-
-The mailbox export contains two messages sharing the same claimed sender, subject, account-security template, account-review destination, and linked document.
-
-| Sample | Message header date (UTC) | Equivalent time (IST) |
-|---|---|---|
-| Earlier sample | 3 October 2026, 20:04:57 | 4 October 2026, 01:34:57 |
-| Later sample | 3 October 2026, 20:26:17 | 4 October 2026, 01:56:17 |
-
-Their Message-IDs and tracking parameters differ. These similarities support reviewing the two emails as related simulation samples. The times above come from the message Date headers, rather than independently verified delivery logs.
-
 ### 7. Preserve the Evidence
 
 I captured the rendered email and exported the mailbox to retain the message content for documentation and later analysis.
