@@ -11,7 +11,6 @@ The investigation covers sender information, recorded authentication results, me
 | Tool | Purpose |
 |---|---|
 | VS Code | Inspect the original email as text |
-| CyberChef | Decode quoted-printable or Base64 content where needed |
 | VirusTotal | Review existing URL, domain, and IP reputation reports |
 | emlbuddy.app | Application designed to analyze .eml files directly in your browser. |
 
