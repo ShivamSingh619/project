@@ -53,3 +53,50 @@ A packet capture of the associated internal client's traffic is provided for inv
 ## Scope
 
 This is a training exercise. The supplied alert provides the starting hypothesis; conclusions are based on the available packet evidence.
+
+
+
+## Investigation Method and Findings
+
+### 1. What is the IP address of the infected Windows client?
+
+I filtered traffic involving the alerted external IP over TCP port 80.
+
+```wireshark
+ip.addr == 153.92.1.49 and tcp.port == 80
+```
+
+I reviewed the source and destination addresses around the supplied alert time: **27 January 2026 at 23:05 UTC**.
+
+**Finding:** The internal client communicating with the alerted server was `10.1.21.58`.
+
+![Client communication with the alerted server](Images/01-alert-client-ip.png)
+
+
+
+### 2. What is the MAC address of the client?
+
+I selected an outbound packet from `10.1.21.58` and inspected the Source address under **Ethernet II**.
+
+```wireshark
+ip.src == 10.1.21.58 && ip.dst == 153.92.1.49 && tcp.port == 80
+```
+
+The source MAC address was `00:21:5d:c8:0e:f2`.
+
+I then used ARP traffic to confirm the association:
+
+```wireshark
+arp.src.proto_ipv4 == 10.1.21.58
+```
+
+The ARP response showed:
+
+`10.1.21.58 is at 00:21:5d:c8:0e:f2`
+
+**Answer:** The client MAC address is **`00:21:5d:c8:0e:f2`**.
+
+![ARP confirmation of the client IP and MAC address](Images/03-client-mac-confirmation.png)
+
+
+
