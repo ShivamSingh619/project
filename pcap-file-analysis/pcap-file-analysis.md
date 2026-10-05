@@ -38,7 +38,7 @@ A packet capture of the associated internal client's traffic is provided for inv
 ## Tools and Evidence
 
 - **Wireshark:** Packet filtering, protocol inspection, and stream analysis.
-- **PCAP:** `2026-01-31-traffic-analysis-exercise.pcap`
+- **PCAP:** `traffic-analysis-exercise.pcap`
 - **Screenshots:** Relevant packet fields supporting each finding.
 
 ## Investigation Approach
