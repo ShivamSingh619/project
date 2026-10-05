@@ -41,21 +41,6 @@ A packet capture of the associated internal client's traffic is provided for inv
 - **PCAP:** `traffic-analysis-exercise.pcap`
 - **Screenshots:** Relevant packet fields supporting each finding.
 
-## Investigation Approach
-
-1. Locate the connection associated with the alert.
-2. Identify the internal client IP and HTTP domain.
-3. Correlate the client IP with its MAC address.
-4. Identify the hostname and user account from available traffic.
-5. Find evidence linking the account to the user's full name.
-6. Document findings with packet numbers, UTC timestamps, and screenshots.
-
-## Scope
-
-This is a training exercise. The supplied alert provides the starting hypothesis; conclusions are based on the available packet evidence.
-
-
-
 ## Investigation Method and Findings
 
 ### 1. What is the IP address of the infected Windows client?
@@ -100,3 +85,52 @@ The ARP response showed:
 
 
 
+### 3. What is the client's hostname?
+
+I filtered NetBIOS Name Service traffic sent by the client:
+
+```wireshark
+ip.addr eq 10.1.21.58 and nbns
+```
+
+I inspected the name-registration packets and expanded **NetBIOS Name Service** then again expend **Query** section and see the computer name registered by the client.
+
+**Answer:** The client hostname is **`DESKTOP-ES9F3ML`**.
+
+![Client hostname identified in NBNS traffic](Images/04-client-hostname.png)
+
+
+
+### 4. What is the associated user account name?
+
+I filtered Kerberos traffic sent by the client:
+
+```wireshark
+ip.src == 10.1.21.58 && kerberos
+```
+
+I selected an authentication request and expanded **Kerberos → as-req → req-body → cname → CNameString** to inspect the account name.
+
+**Answer:** The user account name is **`gwyatt`**.
+
+![User account identified in Kerberos traffic](Images/05-client-user-account.png)
+
+### 5. What is the user's full name?
+
+- gWyatt looks like it could represent a first name and last name, so I searched the packet details for Wyatt.
+
+### Wireshark Search
+
+  1. Clear the filter
+  2. Press Ctrl + F.
+  3. Select Packet details → String and Enable Case sensitive by ticking the checkbox.
+  4. Search for Wyatt.
+  5. Check the Full Name field associated with the result.
+
+[Watch the Full User name find screen recording](Images/full-name.mp4)
+
+
+
+  
+
+This helps identify the full name associated with the username gWyatt.
