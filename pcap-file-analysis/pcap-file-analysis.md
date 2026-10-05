@@ -132,5 +132,46 @@ I selected an authentication request and expanded **Kerberos → as-req → req-
 
 
   
+### 6. Which domain associated with `153.92.1.49` triggered the alert?
 
-This helps identify the full name associated with the username gWyatt.
+I filtered HTTP requests to the alerted server:
+
+```wireshark
+ip.addr == 153.92.1.49 && http.request
+```
+
+I selected a request from `10.1.21.58`, expanded **Hypertext Transfer Protocol**, and inspected the **Host** field.
+
+**Answer:** The domain associated with the alerted traffic is **`whitepepper[.]su`**.
+
+![HTTP Host field identifying the alert-associated domain](Images/07-alert-domain.png)
+
+
+## Findings Summary
+
+| Item | Finding |
+|---|---|
+| Client IP | `10.1.21.58` |
+| Client MAC | `00:21:5d:c8:0e:f2` |
+| Client hostname | `DESKTOP-ES9F3ML` |
+| User account | `gwyatt` |
+| User’s full name | Gabriel Wyatt |
+| Alert-associated domain | `whitepepper.su` |
+| External server | `153.92.1.49:80` |
+
+## Conclusion
+
+I traced the supplied Lumma Stealer alert to an internal Windows client and correlated packet evidence to identify its MAC address, hostname, associated account, and user’s full name.
+
+The HTTP Host field identified the domain used in communication with the alerted server. These findings provide incident responders with the endpoint and account details needed for further investigation.
+
+## Recommended Follow-up
+
+- Review endpoint telemetry on `DESKTOP-ES9F3ML`.
+- Investigate activity associated with `gwyatt`.
+- Search for related communications across the environment.
+- Assess containment according to the incident-response playbook.
+
+This was a training investigation. No actual containment or L2 handoff was performed.
+
+
