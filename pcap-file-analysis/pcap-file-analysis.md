@@ -127,7 +127,7 @@ I selected an authentication request and expanded **Kerberos → as-req → req-
   4. Search for Wyatt.
   5. Check the Full Name field associated with the result.
 
-[Watch the Full User name find screen recording](Images/full-name.mp4)
+[Full name finding video](Images/full-name.mp4)
 
 
 
